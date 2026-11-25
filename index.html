@@ -35,6 +35,7 @@ html{scroll-behavior:smooth}
 @media (min-width:641px){
   html{scroll-snap-type:y mandatory}
   .work,#info{scroll-snap-align:start}
+  #info{scroll-snap-stop:always}
   footer{scroll-snap-align:end}
 }
 body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.55 "Source Serif 4",Georgia,serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
@@ -184,7 +185,7 @@ footer{padding:72px clamp(20px,4vw,48px) 28px;color:var(--dim);font-size:13px;te
     <button class="thumb" type="button" aria-label="Play Middle Man"><span class="pic"><img src="stills/middle-man.jpg" srcset="stills/middle-man-1600.jpg 1600w, stills/middle-man.jpg 3051w" sizes="100vw" alt="Still from Middle Man" loading="lazy"></span></button>
     <figcaption><span class="t">Middle Man</span><span class="role">Director, producer</span><span class="m">SCAMP, music video, 2027</span><span class="note">In post-production</span></figcaption>
   </figure>
-  <figure class="work e" id="projectionist" data-video="https://player.vimeo.com/video/1249809671" data-ratio="4:3" data-title="Projectionist" data-meta="2022, short documentary, 5 minutes" data-syn="A portrait of Tom Welch, lead projectionist at the Coolidge Corner Theater in Brookline, Massachusetts.">
+  <figure class="work e" id="projectionist" data-video="https://player.vimeo.com/video/1249850133" data-title="Projectionist" data-meta="2022, short documentary, 5 minutes" data-syn="A portrait of Tom Welch, lead projectionist at the Coolidge Corner Theater in Brookline, Massachusetts.">
     <button class="thumb" type="button" aria-label="Play Projectionist"><span class="pic"><img src="stills/projectionist.jpg" srcset="stills/projectionist-1600.jpg 1600w, stills/projectionist.jpg 2360w" sizes="100vw" alt="Still from Projectionist" loading="lazy"></span></button>
     <figcaption><span class="t">Projectionist</span><span class="role">Director, producer</span><span class="m">2022, short documentary, 5 minutes</span><span class="note">Rhode Island International Film Festival, 2022</span></figcaption>
   </figure>
@@ -494,6 +495,12 @@ footer{padding:72px clamp(20px,4vw,48px) 28px;color:var(--dim);font-size:13px;te
   });
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+  // The name returns to the top with the same smooth motion the Info link uses.
+  document.querySelector('.me').addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: still ? 'auto' : 'smooth' });
+    try { history.replaceState(null, '', location.pathname + location.search); } catch (err) {}
+  });
   // Once the first still is up, quietly load and decode the rest so jumps never stutter.
   const warm = () => {
     const imgs = [...document.querySelectorAll('.work img')];
