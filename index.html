@@ -133,7 +133,9 @@ footer{padding:72px var(--padr) calc(28px + env(safe-area-inset-bottom)) var(--p
 @media (max-width:640px){
   body{font-size:16px}
   header{padding-top:max(18px,calc(env(safe-area-inset-top) + 10px));padding-bottom:18px}
-  .id{flex-direction:column;gap:0}
+  .more{display:none}
+  header{transition:color .3s ease,text-shadow .3s ease,opacity .35s ease}
+  header.light{opacity:0;visibility:hidden;transition:color .3s ease,text-shadow .3s ease,opacity .35s ease,visibility 0s linear .35s}
   .work{height:auto;aspect-ratio:4/5}
   .thumb img{object-position:var(--focus,50% 50%)}
   figcaption{bottom:20px;right:var(--padr)}
