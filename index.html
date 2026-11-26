@@ -2,20 +2,21 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Noah Matalon</title>
 <meta name="description" content="Noah Matalon is a director in Los Angeles making short films, documentaries and music videos.">
 <link rel="canonical" href="https://noahmatalon.com/">
 <meta property="og:title" content="Noah Matalon, director">
 <meta property="og:description" content="Short films, documentaries and music videos by Noah Matalon, a director in Los Angeles.">
 <meta property="og:url" content="https://noahmatalon.com/">
-<meta property="og:image" content="https://noahmatalon.com/stills/share.jpg">
+<meta property="og:image" content="https://noahmatalon.com/stills/share-headshot.jpg">
+<meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Still from Tartarus">
+<meta property="og:image:alt" content="Portrait of Noah Matalon">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://noahmatalon.com/stills/share.jpg">
+<meta name="twitter:image" content="https://noahmatalon.com/stills/share-headshot.jpg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="64x64" href="favicon-64.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -30,7 +31,7 @@ PICTURE: stills at different sizes and offsets, small captions, plenty of empty 
 COLOUR and TYPE: near-white page, green-black ink, blue on hover; one small serif.
 LAYOUT: name in the corner, a staggered single run of work, a quiet info area at the end.
 */
-:root{color-scheme:light;--bg:#fbfbf9;--ink:#1d2a23;--dim:#646b66;--line:#dedfda;--link:#1d3aa6}
+:root{color-scheme:light;--bg:#fbfbf9;--ink:#1d2a23;--dim:#646b66;--line:#dedfda;--link:#1d3aa6;--padl:max(clamp(20px,4vw,48px),env(safe-area-inset-left));--padr:max(clamp(20px,4vw,48px),env(safe-area-inset-right))}
 *{box-sizing:border-box;min-width:0}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -40,12 +41,12 @@ html{scroll-behavior:smooth}
   #info{scroll-snap-stop:always}
   footer{scroll-snap-align:end}
 }
-body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.55 "Source Serif 4",Georgia,serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.55 "Source Serif 4",Georgia,serif;overflow-x:clip;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%;text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
 a{color:var(--ink);text-decoration:underline;text-decoration-color:transparent;text-underline-offset:3px;text-decoration-thickness:1px;transition:color .2s ease,text-decoration-color .2s ease}
 a:hover,a:focus-visible{color:var(--link);text-decoration-color:currentColor}
 :focus-visible{outline:1px dotted var(--link);outline-offset:3px}
 
-header{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:22px clamp(20px,4vw,48px);color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.5)}
+header{position:fixed;top:0;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:max(22px,calc(env(safe-area-inset-top) + 12px)) var(--padr) 22px var(--padl);color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.5)}
 header a{color:#fff}
 header .roles{color:rgba(255,255,255,.9)}
 header a:hover,header a:focus-visible{color:#fff}
@@ -73,7 +74,7 @@ main{padding:0;margin:0}
 .thumb[data-ready]{cursor:pointer}
 .work{--near:0}
 .thumb[data-ready] img{opacity:calc(1 - var(--near) * .14)}
-figcaption{transition:opacity .12s linear;position:absolute;z-index:2;left:clamp(20px,4vw,48px);bottom:24px;margin:0;max-width:62ch;color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.45);pointer-events:none}
+figcaption{transition:opacity .12s linear;position:absolute;z-index:2;left:var(--padl);bottom:24px;margin:0;max-width:62ch;color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.45);pointer-events:none}
 figcaption .m,figcaption .note{color:rgba(255,255,255,.88)}
 figcaption .t{display:block;font-weight:600;font-size:19px;line-height:1.25;margin-bottom:3px}
 figcaption .m{color:rgba(255,255,255,.78)}
@@ -84,7 +85,7 @@ figcaption .play::before{content:"";width:0;height:0;border-style:solid;border-w
 @media (hover:none){figcaption .play{opacity:.9;transform:none}}
 figcaption .note{display:block;font-style:italic}
 
-#rail{position:fixed;right:clamp(14px,2vw,28px);top:50%;transform:translateY(-50%);z-index:4;display:flex;flex-direction:column;align-items:flex-end;gap:0;transition:opacity .4s ease,visibility 0s linear 0s}
+#rail{position:fixed;right:max(clamp(14px,2vw,28px),env(safe-area-inset-right));top:50%;transform:translateY(-50%);z-index:4;display:flex;flex-direction:column;align-items:flex-end;gap:0;transition:opacity .4s ease,visibility 0s linear 0s}
 #rail.off{opacity:0;visibility:hidden;transition:opacity .4s ease,visibility 0s linear .4s}
 #rail button{font:inherit;position:relative;display:flex;align-items:center;justify-content:flex-end;width:40px;height:14px;padding:0;background:none;border:0;cursor:pointer;color:#fff}
 #rail button::after{content:"";display:block;width:6px;height:4px;border:1px solid currentColor;border-radius:1.5px;background:transparent;opacity:.3;box-shadow:0 0 5px rgba(0,0,0,.3);transition:opacity .35s ease,background-color .35s ease}
@@ -93,7 +94,7 @@ figcaption .note{display:block;font-style:italic}
 #rail span{position:absolute;right:22px;white-space:nowrap;font-size:13px;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.5);opacity:0;transform:translateX(4px);transition:opacity .25s ease,transform .25s ease;pointer-events:none}
 #rail button:hover span,#rail button:focus-visible span{opacity:.9;transform:none}
 @media (max-width:640px){#rail{display:none}}
-#info{padding:clamp(64px,9vw,128px) clamp(20px,4vw,48px) 32px;max-width:960px;margin:0 auto}
+#info{padding:clamp(64px,9vw,128px) var(--padr) 32px var(--padl);max-width:960px;margin:0 auto}
 #info h2{font-size:15px;font-weight:400;color:var(--dim);margin:0 0 18px;text-align:center}
 .about{display:grid;grid-template-columns:clamp(220px,26vw,300px) minmax(0,580px);column-gap:clamp(28px,4vw,56px);align-items:stretch}
 .about .ph{position:relative;grid-row:1}
@@ -107,6 +108,7 @@ figcaption .note{display:block;font-style:italic}
 .laurels img{display:block;height:72px;width:auto;opacity:.85}
 .credits-col{margin-top:clamp(72px,9vw,120px)}
 .credits{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);max-width:720px;margin-inline:auto;column-gap:20px;row-gap:3px}
+.credits .row{display:contents}
 .credits .r{text-align:right;color:var(--dim)}
 .credits small{font-size:15px;color:var(--dim);white-space:nowrap}
 .group+.group{margin-top:24px}
@@ -114,11 +116,11 @@ figcaption .note{display:block;font-style:italic}
 .contact{margin-top:clamp(72px,9vw,120px);text-align:center}
 .contact nav{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 32px}
 .contact a{display:inline-block;padding:6px 0}
-footer{padding:72px clamp(20px,4vw,48px) 28px;color:var(--dim);font-size:13px;text-align:center}
+footer{padding:72px var(--padr) calc(28px + env(safe-area-inset-bottom)) var(--padl);color:var(--dim);font-size:13px;text-align:center}
 
 #box{position:fixed;inset:0;z-index:10;background:rgba(14,20,16,.9);display:grid;place-items:center;padding:20px;opacity:0;visibility:hidden;transition:opacity .3s ease,visibility 0s linear .3s}
 #box.on{opacity:1;visibility:visible;transition:opacity .3s ease}
-#box .card{--r:1.7778;width:min(1100px,100%,calc((100vh - 160px) * var(--r)));transition:width .3s ease}
+#box .card{--r:1.7778;width:min(1100px,100%,calc((100vh - 160px) * var(--r)));width:min(1100px,100%,calc((100dvh - 160px) * var(--r)));transition:width .3s ease}
 #box .vid{aspect-ratio:var(--r);background:#000;transition:aspect-ratio .3s ease}
 #box iframe{width:100%;height:100%;border:0;display:block}
 #box .cap{display:flex;justify-content:space-between;gap:16px;align-items:baseline;padding-top:12px;color:#e9ebe6}
@@ -130,23 +132,39 @@ footer{padding:72px clamp(20px,4vw,48px) 28px;color:var(--dim);font-size:13px;te
 
 @media (max-width:640px){
   body{font-size:16px}
+  header{padding-top:max(18px,calc(env(safe-area-inset-top) + 10px));padding-bottom:18px}
+  .id{flex-direction:column;gap:0}
   .work{height:auto;aspect-ratio:4/5}
+  .thumb img{object-position:var(--focus,50% 50%)}
+  figcaption{bottom:20px;right:var(--padr)}
+  figcaption .t{font-size:18px}
+  #info{padding-top:72px}
+  .group h3,#info h2{font-size:16px;text-align:left}
   .about{grid-template-columns:minmax(0,1fr)}
   .about .ph{grid-row:auto;margin-bottom:28px}
-  .about img{position:static;width:180px;height:auto}
+  .about img{position:static;width:min(240px,64vw);height:auto}
   .bio,.about .award{grid-row:auto;grid-column:1}
-  .bio .lede{font-size:19px}
-  .laurels img{height:54px}
+  .bio .lede{font-size:20px}
   .bio p{font-size:16px}
-  .credits small{font-size:16px}
-  .group h3,#info h2{font-size:16px}
+  .laurels{justify-content:flex-start;gap:24px 28px;margin-top:64px}
+  .laurels img{height:52px}
+  .credits-col{margin-top:72px}
+  .credits{display:block;max-width:none}
+  .credits .row{display:flex;flex-direction:column-reverse;margin-bottom:14px}
+  .credits .r{text-align:left;font-size:15px}
+  .credits small{font-size:15px}
+  .contact{margin-top:72px;text-align:left}
+  .contact nav{flex-direction:column;align-items:flex-start;gap:0}
+  .contact a{padding:9px 0}
+  footer{text-align:left;padding-top:56px}
+  #box{padding:max(16px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
+  #box button{padding:12px 0 12px 16px}
 }
-@media (max-width:420px){
-  .credits{grid-template-columns:minmax(0,1fr)}
-  .credits .r{text-align:left;margin-top:8px}
-  .group h3,#info h2{text-align:left}
-  .contact{text-align:left}
-  .contact nav{justify-content:flex-start}
+@media (max-height:500px) and (orientation:landscape){
+  #box{padding-block:8px}
+  #box .card{width:min(1100px,100%,calc((100vh - 64px) * var(--r)));width:min(1100px,100%,calc((100dvh - 64px) * var(--r)))}
+  #box .cap{padding-top:6px}
+  #box .syn{display:none}
 }
 </style>
 </head>
@@ -165,34 +183,38 @@ footer{padding:72px clamp(20px,4vw,48px) 28px;color:var(--dim);font-size:13px;te
   Vimeo: https://vimeo.com/123456789 (private: https://vimeo.com/123456789/abcdef1234)
   YouTube: https://www.youtube.com/watch?v=XXXXXXXXXXX or https://youtu.be/XXXXXXXXXXX
   Leave data-video empty and the still is shown without a play option.
+
+  Phone crop: --focus sets which part of the still stays in frame on phones.
+  First number is left to right (0% left edge, 50% center, 100% right edge),
+  second is top to bottom (0% top, 50% middle, 100% bottom). Desktop is not affected.
 -->
 <main>
-  <figure class="work a" id="tartarus" data-video="" data-title="Tartarus" data-meta="2026, short film" data-syn="">
-    <button class="thumb" type="button" aria-label="Play Tartarus"><span class="pic"><img src="stills/tartarus.jpg" srcset="stills/tartarus-1600.jpg 1600w, stills/tartarus.jpg 2880w" sizes="100vw" alt="Still from Tartarus" fetchpriority="high"></span></button>
+  <figure class="work a" id="tartarus" style="--focus:47% 50%" data-video="" data-title="Tartarus" data-meta="2026, short film" data-syn="">
+    <button class="thumb" type="button" aria-label="Play Tartarus"><span class="pic"><img src="stills/tartarus.jpg" srcset="stills/tartarus-1600.jpg 1600w, stills/tartarus.jpg 2880w" sizes="(max-width:640px) 225vw, 100vw" alt="Still from Tartarus" fetchpriority="high"></span></button>
     <figcaption><span class="t">Tartarus</span><span class="role">Director, writer, producer</span><span class="m">2026, short film</span><span class="note">In post-production</span></figcaption>
   </figure>
-  <figure class="work" id="topanga" data-video="https://player.vimeo.com/video/1232308259?h=f5927d1127" data-title="Topanga" data-meta="Gwenn, live session, 2026" data-syn="">
-    <button class="thumb" type="button" aria-label="Play Topanga"><span class="pic"><img src="stills/gwenn.jpg" srcset="stills/gwenn-1600.jpg 1600w, stills/gwenn.jpg 2560w" sizes="100vw" alt="Still from Topanga" loading="lazy"></span></button>
+  <figure class="work" id="topanga" style="--focus:12% 50%" data-video="https://player.vimeo.com/video/1232308259?h=f5927d1127" data-title="Topanga" data-meta="Gwenn, live session, 2026" data-syn="">
+    <button class="thumb" type="button" aria-label="Play Topanga"><span class="pic"><img src="stills/gwenn.jpg" srcset="stills/gwenn-1600.jpg 1600w, stills/gwenn.jpg 2560w" sizes="(max-width:640px) 225vw, 100vw" alt="Still from Topanga" loading="lazy"></span></button>
     <figcaption><span class="t">Topanga</span><span class="role">Director</span><span class="m">Gwenn, live session, 2026</span></figcaption>
   </figure>
-  <figure class="work b" id="get-by" data-video="" data-title="Get By" data-meta="Grey Dugan, music video, 2026" data-syn="">
-    <button class="thumb" type="button" aria-label="Play Get By"><span class="pic"><img src="stills/get-by.jpg" srcset="stills/get-by-1600.jpg 1600w, stills/get-by.jpg 2880w" sizes="100vw" alt="Still from Get By" loading="lazy"></span></button>
+  <figure class="work b" id="get-by" style="--focus:49% 50%" data-video="" data-title="Get By" data-meta="Grey Dugan, music video, 2026" data-syn="">
+    <button class="thumb" type="button" aria-label="Play Get By"><span class="pic"><img src="stills/get-by.jpg" srcset="stills/get-by-1600.jpg 1600w, stills/get-by.jpg 2880w" sizes="(max-width:640px) 225vw, 100vw" alt="Still from Get By" loading="lazy"></span></button>
     <figcaption><span class="t">Get By</span><span class="role">Director, producer</span><span class="m">Grey Dugan, music video, 2026</span><span class="note">In post-production</span></figcaption>
   </figure>
-  <figure class="work c" id="sammy-boy" data-video="https://player.vimeo.com/video/1249617375" data-title="Sammy Boy" data-meta="2023, short film, 21 minutes" data-syn="While in the midst of pledging his father's college fraternity, Sammy meets May Daniels, a senior at his school. As they form an unlikely friendship on the walk home from a party, Sammy is forced to question his own idea of belonging at the beginning of his freshman year.">
-    <button class="thumb" type="button" aria-label="Play Sammy Boy"><span class="pic"><img src="stills/sammy-boy.jpg" srcset="stills/sammy-boy-1600.jpg 1600w, stills/sammy-boy.jpg 2880w" sizes="100vw" alt="Still from Sammy Boy" loading="lazy"></span></button>
+  <figure class="work c" id="sammy-boy" style="--focus:64% 50%" data-video="https://player.vimeo.com/video/1249617375" data-title="Sammy Boy" data-meta="2023, short film, 21 minutes" data-syn="While in the midst of pledging his father's college fraternity, Sammy meets May Daniels, a senior at his school. As they form an unlikely friendship on the walk home from a party, Sammy is forced to question his own idea of belonging at the beginning of his freshman year.">
+    <button class="thumb" type="button" aria-label="Play Sammy Boy"><span class="pic"><img src="stills/sammy-boy.jpg" srcset="stills/sammy-boy-1600.jpg 1600w, stills/sammy-boy.jpg 2880w" sizes="(max-width:640px) 225vw, 100vw" alt="Still from Sammy Boy" loading="lazy"></span></button>
     <figcaption><span class="t">Sammy Boy</span><span class="role">Director, writer, producer</span><span class="m">2023, short film, 21 minutes</span><span class="note">Best Supporting Actress nominee, Emerson EVVY Awards</span></figcaption>
   </figure>
-  <figure class="work d" id="middle-man" data-video="" data-title="Middle Man" data-meta="SCAMP, music video, 2027" data-syn="">
-    <button class="thumb" type="button" aria-label="Play Middle Man"><span class="pic"><img src="stills/middle-man.jpg" srcset="stills/middle-man-1600.jpg 1600w, stills/middle-man.jpg 3051w" sizes="100vw" alt="Still from Middle Man" loading="lazy"></span></button>
+  <figure class="work d" id="middle-man" style="--focus:39% 50%" data-video="" data-title="Middle Man" data-meta="SCAMP, music video, 2027" data-syn="">
+    <button class="thumb" type="button" aria-label="Play Middle Man"><span class="pic"><img src="stills/middle-man.jpg" srcset="stills/middle-man-1600.jpg 1600w, stills/middle-man.jpg 3051w" sizes="(max-width:640px) 225vw, 100vw" alt="Still from Middle Man" loading="lazy"></span></button>
     <figcaption><span class="t">Middle Man</span><span class="role">Director, producer</span><span class="m">SCAMP, music video, 2027</span><span class="note">In post-production</span></figcaption>
   </figure>
-  <figure class="work e" id="projectionist" data-video="https://player.vimeo.com/video/1249850133" data-title="Projectionist" data-meta="2022, short documentary, 5 minutes" data-syn="A portrait of Tom Welch, lead projectionist at the Coolidge Corner Theater in Brookline, Massachusetts.">
-    <button class="thumb" type="button" aria-label="Play Projectionist"><span class="pic"><img src="stills/projectionist.jpg" srcset="stills/projectionist-1600.jpg 1600w, stills/projectionist.jpg 2360w" sizes="100vw" alt="Still from Projectionist" loading="lazy"></span></button>
+  <figure class="work e" id="projectionist" style="--focus:59% 50%" data-video="https://player.vimeo.com/video/1249850133" data-title="Projectionist" data-meta="2022, short documentary, 5 minutes" data-syn="A portrait of Tom Welch, lead projectionist at the Coolidge Corner Theater in Brookline, Massachusetts.">
+    <button class="thumb" type="button" aria-label="Play Projectionist"><span class="pic"><img src="stills/projectionist.jpg" srcset="stills/projectionist-1600.jpg 1600w, stills/projectionist.jpg 2360w" sizes="(max-width:640px) 225vw, 100vw" alt="Still from Projectionist" loading="lazy"></span></button>
     <figcaption><span class="t">Projectionist</span><span class="role">Director, producer</span><span class="m">2022, short documentary, 5 minutes</span><span class="note">Rhode Island International Film Festival, 2022</span></figcaption>
   </figure>
-  <figure class="work f" id="a-letter" data-video="https://player.vimeo.com/video/776872346" data-title="A Letter to Your Younger Self" data-meta="2022, short film, 5 minutes" data-syn="Three college students reflect on their pasts and explore their aspirations for the future in letters to their younger selves.">
-    <button class="thumb" type="button" aria-label="Play A Letter to Your Younger Self"><span class="pic"><img src="stills/a-letter-to-your-younger-self.jpg" srcset="stills/a-letter-to-your-younger-self-1600.jpg 1600w, stills/a-letter-to-your-younger-self.jpg 2880w" sizes="100vw" alt="Still from A Letter to Your Younger Self" loading="lazy"></span></button>
+  <figure class="work f" id="a-letter" style="--focus:35% 50%" data-video="https://player.vimeo.com/video/776872346" data-title="A Letter to Your Younger Self" data-meta="2022, short film, 5 minutes" data-syn="Three college students reflect on their pasts and explore their aspirations for the future in letters to their younger selves.">
+    <button class="thumb" type="button" aria-label="Play A Letter to Your Younger Self"><span class="pic"><img src="stills/a-letter-to-your-younger-self.jpg" srcset="stills/a-letter-to-your-younger-self-1600.jpg 1600w, stills/a-letter-to-your-younger-self.jpg 2880w" sizes="(max-width:640px) 225vw, 100vw" alt="Still from A Letter to Your Younger Self" loading="lazy"></span></button>
     <figcaption><span class="t">A Letter to Your Younger Self</span><span class="role">Director, producer</span><span class="m">2022, short film, 5 minutes</span></figcaption>
   </figure>
 </main>
@@ -218,18 +240,18 @@ footer{padding:72px clamp(20px,4vw,48px) 28px;color:var(--dim);font-size:13px;te
     <h2>Credits</h2>
   <div class="group credits">
     <h3>Feature and series</h3>
-    <div class="r">Post-production coordinator</div><div><a href="https://www.imdb.com/title/tt39656688/">I Got Bombed at Harvey's</a> <small>SXSW</small></div>
-    <div class="r">Assistant editor, DIT, PA</div><div><a href="https://www.imdb.com/title/tt31908826/">Smugshot</a></div>
-    <div class="r">Production assistant</div><div><a href="https://www.imdb.com/title/tt41508977/">Hulk Hogan: Real American</a></div>
-    <div class="r">Production assistant</div><div><a href="https://www.imdb.com/title/tt33745056/">It's Florida Man</a></div>
-    <div class="r">Production assistant</div><div><a href="https://www.imdb.com/title/tt7461272/">Call Jane</a></div>
-    <div class="r">Production assistant</div><div><a href="https://www.imdb.com/title/tt15112934/">Taking the Reins</a></div>
+    <div class="row"><div class="r">Post-production coordinator</div><div><a href="https://www.imdb.com/title/tt39656688/">I Got Bombed at Harvey's</a> <small>SXSW</small></div></div>
+    <div class="row"><div class="r">Assistant editor, DIT, PA</div><div><a href="https://www.imdb.com/title/tt31908826/">Smugshot</a></div></div>
+    <div class="row"><div class="r">Production assistant</div><div><a href="https://www.imdb.com/title/tt41508977/">Hulk Hogan: Real American</a></div></div>
+    <div class="row"><div class="r">Production assistant</div><div><a href="https://www.imdb.com/title/tt33745056/">It's Florida Man</a></div></div>
+    <div class="row"><div class="r">Production assistant</div><div><a href="https://www.imdb.com/title/tt7461272/">Call Jane</a></div></div>
+    <div class="row"><div class="r">Production assistant</div><div><a href="https://www.imdb.com/title/tt15112934/">Taking the Reins</a></div></div>
   </div>
   <div class="group credits">
     <h3>Short films</h3>
-    <div class="r">Cinematographer</div><div>People Watching <small>dir. Mitch McGonegal</small></div>
-    <div class="r">Production manager</div><div>My Child <small>dir. Deniz Akyurek</small></div>
-    <div class="r">Cinematographer</div><div>Abducted Anonymous <small>dir. Ben Schwartz</small></div>
+    <div class="row"><div class="r">Cinematographer</div><div>People Watching <small>dir. Mitch McGonegal</small></div></div>
+    <div class="row"><div class="r">Production manager</div><div>My Child <small>dir. Deniz Akyurek</small></div></div>
+    <div class="row"><div class="r">Cinematographer</div><div>Abducted Anonymous <small>dir. Ben Schwartz</small></div></div>
   </div>
   </div>
   <div class="contact">
@@ -516,8 +538,11 @@ footer{padding:72px clamp(20px,4vw,48px) 28px;color:var(--dim);font-size:13px;te
     };
     next();
   };
-  if (document.readyState === 'complete') setTimeout(warm, 300);
-  else window.addEventListener('load', () => setTimeout(warm, 300), { once: true });
+  // Phones scroll normally and never jump, so they skip this and save data.
+  if (!window.matchMedia('(max-width:640px)').matches) {
+    if (document.readyState === 'complete') setTimeout(warm, 300);
+    else window.addEventListener('load', () => setTimeout(warm, 300), { once: true });
+  }
 }
 </script>
 </body>
